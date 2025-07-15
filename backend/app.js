@@ -17,7 +17,7 @@ import { app, server } from "./src/DataBase/socket.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
-const _Suraj = path.resolve();
+const __Suraj = path.resolve();
 
 app.use(cors({
     origin: process.env.CLIENT_URL,
@@ -35,11 +35,12 @@ app.use('/api/users', userRoutes);
 app.use('/api/contacts', contactRou);  
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(_Suraj, "../frontend/dist")))
+    app.use(express.static(path.join(__Suraj, "../frontend/dist")))
 
-    app.get("*",(req,res) => {
-        res.sendFile(path.join(_Suraj,"../frontend", "dist" ,"index.html"))
-    })
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__Suraj, "../frontend", "dist", "index.html"))
+})
+
 }
 
 
