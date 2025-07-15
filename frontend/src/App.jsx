@@ -15,7 +15,6 @@ const App = () => {
   const { theme } = useTHEME_COLORStore()
 
   console.log(onlineUsers)
-  // ✅ theme apply to <html> tag
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);

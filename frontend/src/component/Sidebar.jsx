@@ -73,24 +73,19 @@ const Sidebar = () => {
 
   return (
     <aside className="h-full w-full sm:w-72 lg:w-auto border-r flex flex-col transition-all duration-200 bg-base-100">
-      {/* Header */}
       <div className="border-b w-full p-4 bg-base-100 shadow-sm">
-        {/* Top Row: Title + Create Group */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 px-2 pb-3 border-b">
-          {/* Title */}
           <div className="flex items-center gap-2">
             <Users className="size-6 text-primary" />
             <h2 className="text-lg font-semibold text-gray-800 tracking-tight">Your Contacts</h2>
           </div>
 
-          {/* Create Group */}
           <button className="flex items-center gap-1 text-sm sm:text-base font-medium text-primary hover:text-primary/80 transition">
             <UserPlus className="size-5" />
             <span className="sm:inline text-primary font-semibold tracking-wide">Create Group</span>
           </button>
         </div>
 
-        {/* Online Filter */}
         <div className="flex items-center justify-between px-2 pt-3">
           <label className="flex items-center gap-2 cursor-pointer text-sm font-medium text-gray-700">
             <input
@@ -107,7 +102,6 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Contact Requests */}
       {requests.length > 0 && (
         <div className="px-4 pt-2 pb-3">
           <div className="text-sm font-medium text-zinc-500 mb-2">Contact Requests</div>
@@ -135,7 +129,6 @@ const Sidebar = () => {
         </div>
       )}
 
-      {/* Search Input */}
       <div className="relative px-4 pb-4 pt-3">
         <div className="relative">
           <input
@@ -153,7 +146,6 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Search Results */}
       {searchResults.length > 0 && (
         <div className="px-4 pb-2">
           <div className="text-xs text-zinc-400 mb-1">Search Results:</div>
@@ -181,7 +173,6 @@ const Sidebar = () => {
         </div>
       )}
 
-      {/* User List or Fallback */}
       <div className="overflow-y-auto flex-1 py-2 pr-1">
         {filteredUsers.length === 0 ? (
           <div className="text-sm text-center text-gray-500 py-10 italic">

@@ -16,10 +16,8 @@ const AuthImagePattern = ({ title, subtitle }) => {
   return (
     <div className="hidden lg:flex items-center justify-center min-h-screen w-full ">
       <div className="max-w-md w-full text-center backdrop-blur-xl bg-white/5 p-8 rounded-3xl shadow-2xl border border-white/10 relative overflow-hidden">
-        {/* Glow animated border effect */}
         <div className="absolute inset-0 rounded-3xl border-2 border-transparent bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-400 blur-xl opacity-10 animate-pulse pointer-events-none"></div>
 
-        {/* Color Grid */}
         <div className="grid grid-cols-3 grid-rows-3 gap-4 mb-10 z-10 relative">
           {colors.map((color, i) => (
             <div
@@ -37,7 +35,6 @@ const AuthImagePattern = ({ title, subtitle }) => {
           ))}
         </div>
 
-        {/* Heading & Subtitle */}
         <h2 className="text-3xl font-extrabold text-white drop-shadow-md mb-3">
           {title}
         </h2>

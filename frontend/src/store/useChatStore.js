@@ -101,7 +101,6 @@ export const useChatStore = create((set, get) => ({
       return [];
     }
   },
-  // Inside useChatStore
   acceptedUsers: [],
   getAcceptedUsers: async () => {
     try {

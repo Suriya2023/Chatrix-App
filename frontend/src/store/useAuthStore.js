@@ -3,7 +3,7 @@ import { axiosInstance } from '../Database/axios';
 import toast from 'react-hot-toast';
 import { io } from 'socket.io-client';
 
-const BASE_SOCKET_URL = "http://localhost:5005"; // No /api here
+const BASE_SOCKET_URL = import.meta.env.MODE === "development" ? "http://localhost:5005/api": "/";// No /api here
 
 export const useAuthStore = create((set, get) => ({
   authUser: null,
@@ -14,7 +14,6 @@ export const useAuthStore = create((set, get) => ({
   onlineUsers: [],
   socket: null,
 
-  // ✅ Check Authentication
   checkinAuth: async () => {
     try {
       const res = await axiosInstance.get('/auth/check');
@@ -28,7 +27,6 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // ✅ Signup
   signup: async (data) => {
     set({ isSigningUp: true });
     try {
@@ -43,7 +41,6 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // ✅ Login
   login: async (data) => {
     set({ isLogging: true });
     try {
@@ -58,7 +55,6 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // ✅ Logout
   logout: async () => {
     try {
       await axiosInstance.post("/auth/logout");
@@ -70,7 +66,6 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // ✅ Update Profile
   updateProfile: async (data) => {
     set({ isUpdatingProfile: true });
     try {
@@ -85,7 +80,6 @@ export const useAuthStore = create((set, get) => ({
     }
   },
 
-  // ✅ Socket Connect
   connectSocket: () => {
     const { authUser } = get();
     if (!authUser || get().socket?.connected) return;
@@ -102,7 +96,6 @@ export const useAuthStore = create((set, get) => ({
     });
   },
 
-  // ✅ Socket Disconnect
   disconnectSocket: () => {
     const socket = get().socket;
     if (socket?.connected) socket.disconnect();
