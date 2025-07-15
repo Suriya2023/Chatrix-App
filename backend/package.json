@@ -3,18 +3,13 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node app.js",        
+    "dev": "npx nodemon app.js",    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "type": "module",
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
-    "chatrix-90a49c01aed1dbec892de415e11caa205c5f3bbf": "file:..",
     "cloudinary": "^2.7.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
